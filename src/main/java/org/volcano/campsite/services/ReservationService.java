@@ -8,8 +8,6 @@ import org.volcano.campsite.entities.DateRange;
 import org.volcano.campsite.entities.UserData;
 
 public interface ReservationService {
-
-	public List<DateRange> getFreeDates(Date dateFrom, Date dateTo);
 	
 	public ResultEnum checkReservation(Date dateFrom, Date dateTo);
 
@@ -18,5 +16,7 @@ public interface ReservationService {
 	public void cancelReservation(String bookId) throws Exception;
 
 	public void updateReservation(String bookId, UserData userData, Date dateFrom, Date dateTo);
+	
+	public List<DateRange> getFreeDates(Date dateFrom, Date dateTo);
 
 }

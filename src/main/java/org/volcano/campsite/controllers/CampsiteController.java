@@ -69,18 +69,20 @@ public class CampsiteController {
 			reservationService.cancelReservation(id);
 			return new CampsiteResponse(ResultEnum.C_VALID.getResult());
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new CampsiteResponse(ResultEnum.C_NOT_VALID.getResult());
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public CampsiteResponse updateReservation(@PathVariable("id") String id,
+	public CampsiteResponse updateReservation(@PathVariable String id,
 			@RequestBody CampsiteRequest campsiteRequest) {
 		try {
 			reservationService.updateReservation(id, campsiteRequest.getUserData(), campsiteRequest.getDateFrom(),
 					campsiteRequest.getDateTo());
 			return new CampsiteResponse(ResultEnum.U_VALID.getResult());
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new CampsiteResponse(ResultEnum.U_NOT_VALID.getResult());
 		}
 	}

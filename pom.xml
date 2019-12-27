@@ -50,6 +50,18 @@
 			<artifactId>guava</artifactId>
 			<version>${guava.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<properties>
@@ -58,6 +70,8 @@
 		<h2database.version>1.4.196</h2database.version>
 		<lombok.version>1.18.10</lombok.version>
 		<guava.version>28.2-jre</guava.version>
+		<httpclient.version>4.5.10</httpclient.version>
+		<junit.version>4.8.2</junit.version>
 	</properties>
 
 	<build>

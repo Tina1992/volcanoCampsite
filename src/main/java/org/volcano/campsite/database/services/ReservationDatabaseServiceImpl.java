@@ -15,6 +15,7 @@ public class ReservationDatabaseServiceImpl implements ReservationDatabaseServic
 	@Autowired
 	private VolcanoTransactionDao volcanoTransactionDao;
 
+	@Override
 	public int saveVolcanoTransaction(UserData userData, Date dateFrom, Date dateTo) {
 		VolcanoTransactionEntity volcanoTransactionEntity = new VolcanoTransactionEntity();
 		volcanoTransactionEntity.setDateFrom(dateFrom);
@@ -25,12 +26,14 @@ public class ReservationDatabaseServiceImpl implements ReservationDatabaseServic
 
 	}
 
+	@Override
 	public void removeVolcanoTransaction(String bookId) throws Exception {
 		if (volcanoTransactionDao.removeVolcanoTransaction(bookId) < 1) {
 			throw new Exception("Error removing transactions. No row was removed.");
 		}
 	}
 
+	@Override
 	public void updateVolcanoTransaction(String bookId, UserData userData, Date dateFrom, Date dateTo) {
 		VolcanoTransactionEntity volcanoTransactionEntity = volcanoTransactionDao.findTransactionById(bookId);
 		volcanoTransactionEntity.setEmail(userData.getMail());
@@ -40,6 +43,7 @@ public class ReservationDatabaseServiceImpl implements ReservationDatabaseServic
 		volcanoTransactionDao.updateVolcanoTransaction(volcanoTransactionEntity);
 	}
 
+	@Override
 	public List<VolcanoTransactionEntity> getOverlappingReservations(Date dateFrom, Date dateTo) {
 		return volcanoTransactionDao.getOverlappingReservations(dateFrom, dateTo);
 	}

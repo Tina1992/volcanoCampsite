@@ -8,6 +8,7 @@ public class CampsiteConstants {
 	
 	public static final String DATE_FORMAT = "dd.MM.yyyy";
 	public static final String TIMEZONE = "EST";
+	public static final String LOCAL_DATE_FORMAT = "yyyy-MM-dd";
 	
 	
 }
